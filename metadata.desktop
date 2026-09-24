@@ -1,0 +1,14 @@
+[SddmGreeterTheme]
+Name=RankingKings
+Description=Warm, Cozy login screen
+Author=Randam
+Copyright=(c) 2026, Randam
+License=GPLv3
+Type=sddm-theme
+Version=1.0
+Website=
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Theme-Id=fancy
+Theme-API=2.0
