@@ -86,7 +86,7 @@ Item {
             if (name && name !== "") return name;
             if (userModel.lastUser && userModel.lastUser !== "") return userModel.lastUser;
         }
-        return "Randam";
+        return "randam";
     }
 
     property var currentTime: new Date()
@@ -101,21 +101,20 @@ Item {
 
     function doLogin() {
         errorMessage.visible = false;
+
         var username = root.selectedUser;
         var password = passwordInput.text;
-        var sess = root.currentSessionIndex;
+
+        // Use active session index (defaults to last successfully used session)
+        var sess = (typeof sessionModel !== "undefined" && sessionModel.lastIndex >= 0)
+        ? sessionModel.lastIndex
+        : root.currentSessionIndex;
 
         if (typeof sddm !== "undefined") {
+            // Hand credentials over to Linux PAM daemon
             sddm.login(username, password, sess);
         }
-
-        if (passwordInput.text !== "") {
-            errorMessage.text = "WRONG  PASSWORD!";
-            errorMessage.visible = true;
-            passwordInput.text = "";
-        }
     }
-
     Connections {
         target: (typeof sddm !== "undefined") ? sddm : null
 
