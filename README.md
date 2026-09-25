@@ -60,6 +60,7 @@ ranking-kings-sddm/
 
 ```bash
 sudo cp -r /path/to/Theme /usr/share/sddm/themes/ranking-kings
+sudo chmod -R a+rX /usr/share/sddm/themes/ranking-kings
 ```
 
 **2. Set it as the active theme.**
